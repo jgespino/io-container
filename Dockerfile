@@ -1,5 +1,11 @@
+#DevCloud IO Test
 FROM ubuntu:18.04
 
-RUN mkdir -p /app/results
+# create a dir
+RUN mkdir -p /opt/results
 
-CMD echo "Hello World!" > /app/results/text.txt
+# Output Mount Point = /opt/results
+# in filesystem, existing path /intel-devcloud-samples/container-workloads/README.md
+# copy above existing readme by mounting and as a text file in /opt/results
+# Filesystem Path = /intel-devcloud-samples | Input Mount Point = /my-mount
+CMD echo "Hello World!" > /opt/results/hello.txt && cp /my-mount/container-workloads/README.md /opt/results/README-copy.txt
